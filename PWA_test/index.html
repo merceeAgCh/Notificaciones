@@ -112,9 +112,6 @@
       .btn.primary {
         background: #7dc800;
       }
-      .btn.warning {
-        background: #ff463b;
-      }
       .btn:active {
         transform: scale(0.9);
       }
@@ -125,7 +122,7 @@
       <div class="notification" id="notification"></div>
     </header>
     <h4>Esto es una prueba de notificaciones</h4>
-    <button class="btn primary" id="button">Notificar</button>
+    <button class="btn primary" id="button" title="Notificar" onclick="showNotification();">Notificar</button>
     <script>
       const $button = document.getElementById("button");
       const $bell = document.getElementById("notification");
@@ -140,6 +137,22 @@
       $bell.addEventListener("animationend", () => {
         $bell.classList.remove("notify");
       });
+      navigator.serviceWorker.register("sw.js");
+
+      function showNotification() {
+        Notification.requestPermission(function (result) {
+          if (result === "granted") {
+            navigator.serviceWorker.ready.then(function (registration) {
+              registration.showNotification("Hola", {
+                body: "Notificando!! Hola!!",
+                icon: "img/imagen.png",
+                vibrate: [200, 100, 200, 100, 200, 100, 200],
+                tag: "vibration-sample",
+              });
+            });
+          }
+        });
+      }
     </script>
   </body>
 </html>
