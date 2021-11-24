@@ -1,0 +1,20 @@
+{
+    "name": "Notificaciones test pwa",
+    "short_name": "Notificaciones test pwa",
+    "start_url": ".",
+    "background_color": "#ffffff",
+    "theme_color": "#1d3644",
+    "display": "standalone",
+    "icons":[
+        {
+            "src": "img/logo1.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "img/imagen.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
