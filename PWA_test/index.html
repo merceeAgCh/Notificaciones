@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Notificaciones Prueba</title>
+    <title>Harry Potter</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -11,7 +11,7 @@
     <link rel="apple-touch-icon" href="img/logo1.png" />
     <style>
       .header {
-        background: #1d3644;
+        background: #043312;
         height: 52px;
         display: flex;
         justify-content: flex-end;
@@ -117,12 +117,19 @@
       }
     </style>
   </head>
-  <body>
+  <body background = "img/img1.jpg">
     <header class="header">
       <div class="notification" id="notification"></div>
     </header>
-    <h4>Esto es una prueba de notificaciones</h4>
+    <center>
+      <h1 class="entry-title" style="color: rgb(255, 0, 0)">Mundo de Harry Potter</h1>
+   
+    <h2 class="entry-title" style="color: rgb(255, 145, 0)">Casas de Hogwarts</h2>
+      <img src="img/casas.jpg">  
+    </center>  
+  <p align = "right">
     <button class="btn primary" id="button" title="Notificar" onclick="showNotification();">Notificar</button>
+  </p>
     <script>
       const $button = document.getElementById("button");
       const $bell = document.getElementById("notification");

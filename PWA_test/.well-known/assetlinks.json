@@ -1,0 +1,14 @@
+[
+    {
+        "relation": [
+            "delegate_permission/common.handle_all_urls"
+        ],
+        "target": {
+            "namespace": "android_app",
+            "package_name": "io.github.merceeagch.twa",
+            "sha256_cert_fingerprints": [
+                "9B:79:12:2B:2A:9D:02:F9:AE:3A:76:60:91:68:18:7C:DD:07:76:B2:1E:5E:A8:58:A0:DE:70:11:30:1F:B7:77"
+            ]
+        }
+    }
+]
