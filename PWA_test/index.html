@@ -3,156 +3,46 @@
   <head>
     <meta charset="UTF-8" />
     <title>Notificaciones Prueba</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <link rel="manifest" href="manifest.json" />
-    <link rel="apple-touch-icon" href="img/logo1.png" />
-    <style>
-      .header {
-        background: #1d3644;
-        height: 52px;
-        display: flex;
-        justify-content: flex-end;
-        padding-right: 200px;
-      }
-      .notification {
-        color: white;
-        width: 50px;
-        height: inherit;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-      }
-
-      .notification:before {
-        content: "\f0f3";
-        font-family: "FontAwesome";
-        display: block;
-        transform-origin: center top;
-      }
-      .notification.notify:before {
-        animation-name: bell;
-        animation-duration: 1s;
-        animation-timing-function: ease-out;
-      }
-      @keyframes bell {
-        0% {
-          transform: rotate(35deg);
-        }
-        12.5% {
-          transform: rotate(-30deg);
-        }
-        25% {
-          transform: rotate(25deg);
-        }
-        37.5% {
-          transform: rotate(-20deg);
-        }
-        50% {
-          transform: rotate(15deg);
-        }
-        62.5% {
-          transform: rotate(-10deg);
-        }
-        75% {
-          transform: rotate(5deg);
-        }
-        100% {
-          transform: rotate(0deg);
-        }
-      }
-
-      .notification:after {
-        font-size: 11px;
-        font-weight: bold;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        min-width: 14px;
-        height: 14px;
-
-        background: #ff4600;
-        border-radius: 50%;
-
-        font-family: Arial;
-        position: absolute;
-
-        top: 5px;
-        right: 5px;
-        content: attr(data-count);
-        opacity: 0;
-        transform: scale(0.5);
-        transition: 0.3s;
-        will-change: opacity, transform;
-      }
-      .notification.show-count:after {
-        opacity: 2;
-        transform: scale(1);
-      }
-      .btn {
-        text-align: center;
-        padding: 0.6em 0.8em 0.8em;
-        border: none;
-        color: white;
-        background: lightgray;
-        margin: 5px;
-        border-radius: 5px;
-        cursor: pointer;
-        box-shadow: inset 0 -0.2em rgba(0, 0, 0, 0.2);
-        outline: 0;
-        transition: 0.2s;
-        will-change: transform;
-      }
-      .btn.primary {
-        background: #7dc800;
-      }
-      .btn:active {
-        transform: scale(0.9);
-      }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- https://fontawesome.com/icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="img/logo1.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="import" href="component.html">
   </head>
   <body>
     <header class="header">
+      <i class="fa-solid fa-cat-space"></i>
+      <div class="bar-title">Todo sobre michis</div>
       <div class="notification" id="notification"></div>
     </header>
-    <h4>Esto es una prueba de notificaciones</h4>
-    <button class="btn primary" id="button" title="Notificar" onclick="showNotification();">Notificar</button>
-    <script>
-      const $button = document.getElementById("button");
-      const $bell = document.getElementById("notification");
 
-      $button.addEventListener("click", () => {
-        const count = Number($bell.getAttribute("data-count")) || 0;
-        $bell.setAttribute("data-count", count + 1);
-        $bell.classList.add("show-count");
-        $bell.classList.add("notify");
-      });
+    <h1 class="text-center my-3">Gatos</h1>
+    <img src="img/cato.jpg" alt="Un michi y su paleta" class="rounded mx-auto d-block my-4">
+    <hr>
 
-      $bell.addEventListener("animationend", () => {
-        $bell.classList.remove("notify");
-      });
-      navigator.serviceWorker.register("sw.js");
+    <h3 class="text-center my-3">¿Por qué los gatitos son lo mejor?</h3>
+      <div class="container">    
+        <iframe class="text-center youtube-video" src="https://www.youtube.com/embed/0dgWFIXlMzI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <button class="btn primary" id="button" title="Notificar" onclick="showNotification();">Miau?</button>
+      </div>
+    <script src="src/button.js"></script>
+    <hr>
 
-      function showNotification() {
-        Notification.requestPermission(function (result) {
-          if (result === "granted") {
-            navigator.serviceWorker.ready.then(function (registration) {
-              registration.showNotification("Hola", {
-                body: "Notificando!! Hola!!",
-                icon: "img/imagen.png",
-                vibrate: [200, 100, 200, 100, 200, 100, 200],
-                tag: "vibration-sample",
-              });
-            });
-          }
-        });
-      }
-    </script>
+    <h3 class="text-center my-3">¿Pero por qué los gatos?</h3>
+    <div class="quoting">
+      <blockquote cite="https://www.neruda.uchile.cl/obra/obranavyregresos2.html" class="blockquote">
+        <p class="mb-0">Los animales fueron imperfectos,<br>
+        largos de cola, tristes de cabeza.<br><br>
+        Poco a poco se fueron<br>
+        componiendo, haciéndose paisaje,<br>
+        adquiriendo lunares, gracia, vuelo.<br><br>
+        El gato, sólo el gato<br>
+        apareció completo y orgulloso:<br>
+        nació completamente terminado,<br>
+        camina solo y sabe lo que quiere.</p>
+        <footer class="blockquote-footer">Un pequeño fragmento de la <a href="https://www.neruda.uchile.cl/obra/obranavyregresos2.html"><cite>Oda al Gato</cite></a> de Pablo Neruda.</footer>
+      </blockquote>
+    </div>
   </body>
 </html>

@@ -1,0 +1,212 @@
+/* Para todo CSS */
+
+:root {
+  --primary: #6a808d;
+  --secondary: #bcd0cf;
+  --third: #aa9d8c;
+  --fourth: #c99764;
+  --fifth: #a5715c;
+}
+
+body {
+  margin: 0;
+}
+
+/* Para header */
+
+.header {
+  background: var(--fifth);
+  height: 52px;
+  display: flex;
+}
+
+.bar-title {
+  font-size: 1.8em;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Para multimedia */
+
+.cat-ico {
+  font-size: 60px;
+  color: var(--fourth);
+  text-shadow: 2px 2px 4px #000000;
+}
+
+.youtube-video {
+  display: block;
+  width: 560px; 
+  height: 315px;
+}
+
+/* Para citas */
+
+.quoting {
+  display: flex;
+}
+
+blockquote {
+  font-family: Georgia, serif;
+  font-size: 18px;
+  font-style: italic;
+  width: 500px;
+  margin: 0.25em 0;
+  padding: 0.35em 40px;
+  line-height: 1.45;
+  position: relative;
+  color: #383838;
+  margin-left: auto;
+  margin-right: 2.2em;
+}
+
+blockquote:before {
+  display: block;
+  padding-left: 10px;
+  font-size:4.5em;
+  position: absolute;
+  left: -20px;
+  top: -20px;
+  color: var(--third);
+  content: "\201C";
+}
+
+blockquote:after {
+  font-family: Georgia, serif;
+  font-size: 4em;
+  position: absolute;
+ /* display: block; don't use this, it raised the quote too high from the bottom - defeated line-height? */
+  float:right;
+  line-height: 1;
+  right:0;
+  bottom:-0.5em;
+  color: #7a7a7a;
+  content: "\201D";
+}
+
+blockquote cite {
+  color: var(--secondary);
+  font-size: 14px;
+  display: block;
+  margin-top: 5px;
+}
+
+blockquote footer {
+  padding: 0 2em 0 0;
+  text-align:right;
+}
+
+blockquote cite:before {
+  content: "\2014 \2009";
+}
+
+/* Para notificaciones */
+
+.notification {
+  color: white;
+  width: 50px;
+  height: inherit;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-left: auto;
+}
+
+.notification:before {
+  content: "\f0f3";
+  font-family: "FontAwesome";
+  display: block;
+  transform-origin: center top;
+}
+
+.notification.notify:before {
+  animation-name: bell;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+}
+
+@keyframes bell {
+  0% {
+    transform: rotate(35deg);
+  }
+  12.5% {
+    transform: rotate(-30deg);
+  }
+  25% {
+    transform: rotate(25deg);
+  }
+  37.5% {
+    transform: rotate(-20deg);
+  }
+  50% {
+    transform: rotate(15deg);
+  }
+  62.5% {
+    transform: rotate(-10deg);
+  }
+  75% {
+    transform: rotate(5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.notification:after {
+  font-size: 11px;
+  font-weight: bold;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 14px;
+  height: 14px;
+
+  background: #ff4600;
+  border-radius: 50%;
+
+  font-family: Arial;
+  position: absolute;
+
+  top: 5px;
+  right: 5px;
+  content: attr(data-count);
+  opacity: 0;
+  transform: scale(0.5);
+  transition: 0.3s;
+  will-change: opacity, transform;
+}
+
+.notification.show-count:after {
+  opacity: 2;
+  transform: scale(1);
+}
+
+/* Para boton */
+
+.btn {
+  text-align: center;
+  padding: 0.6em 0.8em 0.8em;
+  border: none;
+  color: white;
+  background: lightgray;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: inset 0 -0.2em rgba(0, 0, 0, 0.2);
+  outline: 0;
+  transition: 0.2s;
+  will-change: transform;
+}
+
+.btn.primary {
+  background: #7dc800;
+}
+
+.btn:active {
+  transform: scale(0.9);
+}
