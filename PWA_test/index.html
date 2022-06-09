@@ -117,12 +117,29 @@
       }
     </style>
   </head>
-  <body>
+  <body background = "img/fondo.jpg">
     <header class="header">
       <div class="notification" id="notification"></div>
     </header>
-    <h4>notifications</h4>
-    <button class="btn primary" id="button" title="Notificar" onclick="showNotification();">Notificar</button>
+    <marquee behavior = "alternate" direction = "up">
+    <h1 align = center style = "color:rgb(192, 2, 2)">Mundo de Harry Potter</h1>
+    </marquee>
+    <center>
+      <p>
+        <img src = "img/casas.jpg">
+      </p>>
+    </center>>
+
+    <p align = center style="font-size: 30px; color: cornsilk;"  >Selecciona tu casa</p>
+    <p align = center>
+      <a href="https://harrypotter.fandom.com/wiki/Gryffindor" style="font-size: 30px; color:rgb(192, 2, 2);">Gryffindor </a>
+      <a href="https://harrypotter.fandom.com/wiki/Slytherin" style="font-size: 30px; color:rgba(24, 192, 2, 0.651)">Slytherin </a>
+      <a href="https://harrypotter.fandom.com/wiki/Hufflepuff" style="font-size: 30px; color:rgba(238, 255, 0, 0.863)">Hufflepuff </a>
+      <a href="https://harrypotter.fandom.com/wiki/Ravenclaw" style="font-size: 30px; color:rgb(0, 4, 255)">Ravenclaw </a>
+    </p>
+    <center>
+      <button class="btn primary" id="button" title="Notificar" onclick="showNotification();">Ingresar a sitio</button>
+    </center>
     <script>
       const $button = document.getElementById("button");
       const $bell = document.getElementById("notification");
